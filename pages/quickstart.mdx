@@ -12,40 +12,50 @@ Use [Diamond](https://diamondhpc.ai/) to launch and manage jobs on High-Performa
 - Choose your identity provider and login.
 
 ## Create a apptainer on the HPC system
+Utilize the [Image Builder](https://diamondhpc.ai/image-builder) to create an apptainer image on the HPC system.
+This functionality lets users create an apptainer definition file (`.def`) on the HPC system, build an apptainer image, and save it to the HPC system.
 
 - On the left hand side menu tab, choose "Image Builder"
 - Select the endpoint you want to use to build the image. Eg: `my-globus-compute-endpoint`
 - Choose the account/allocation you want to use to build the image. Eg: `bcqj-delta-cpu`
-- Choose the right partition for your job.
-- Choose a base imag
+- Choose the right partition for your job. Eg: `cpu`
+- Choose a base image. Eg: `python:3.9`
+- Copy-paste your requirements in the "Dependencies" section. Eg: `numpy==1.21` . This will get written to a `requirements.txt` file.
+- Copy-paste your environment variables in the "Environment" section. Eg: `PYTHONPATH=/path/to/your/python/path`
+- Type in your build command in the "Build Command" section. Eg: `pip install -r requirements.txt`
+- Review all the settings and click on "Submit"
+- Stdout and stderr will be streamed to the web page.
+
+![Image Builder](../public/assets/image-builder.png)
+
+## Image Manager
+Utilize the [Image Manager](https://diamondhpc.ai/image-manager) to manage your apptainer images.
+This will list all the apptainer images that have been built on the HPC system by the user.
+
+![Image Manager](../public/assets/image-manager.png)
 
 
-```js filename="demo.js" {3} copy
-let a = 1;
+## Launch a job
+Utilize the [Job Composer](https://diamondhpc.ai/job-composer) to launch a job on the HPC system.
+- Enter the job name.
+- Choose a globus compute endpoint to run the job on.
+- Choose the HPC account/allocation to run the job on.
+- Select a partition, number of nodes and other SLURM parameters for the job.
+- Type in a log path to save the job's stdout and stderr.
+- Type in a command to run your job.
+- Hit "Submit" to launch the job.
+- On the left hand side menu tab, choose "Jobs"
+- Click on "Launch Job"
+- Choose the image you want to use to launch the job.
+- Copy-paste your job script in the "Job Script" section.
+- Review all the settings and click on "Submit"
+- Stdout and stderr will be streamed to the web page.
 
-console.log(a);
-```
+![Job Composer](../public/assets/job-composer.png)
 
-## Component
 
-import { useState } from 'react'
+## Task Manager
+Utilize the [Task Manager](https://diamondhpc.ai/task-manager) to manage your jobs.
+This will list all the jobs that have been launched on the HPC system by the user.
 
-{/* Import CSS modules */}
-import styles from '../components/counters.module.css'
 
-export const Counter = () => {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <button onClick={() => setCount(count + 1)} className={styles.counter}>Clicked {count} times</button>
-    </div>
-  );
-};
-
-<Counter/>
-
-## External Component
-
-import Counters from '../components/counters'
-
-<Counters />
