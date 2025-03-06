@@ -1,20 +1,37 @@
-# Nextra Docs Template 
+# Introduction
+ 
+[Diamond](https://diamondhpc.ai/) is a comprehensive web platform built for launching and managing jobs on High-Performance Computing (HPC) infrastructure. It provides a user-friendly interface for submitting jobs, monitoring their progress, and managing resources. This documentation provides an overview of the project structure, setup instructions, and key features.
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+## Project Overview
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+Key components of Diamond:
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+- **Diamond API**: A RESTful API that allows users to submit jobs, monitor their progress, and manage resources.
+- **Diamond Web UI**: A web interface that allows users to authenticate, submit jobs, monitor their progress, and manage resources.
+- **Globus Compute**: Globus offers a distributed Function as a Service (FaaS) platform that enables reliable, scalable, and high performance remote function execution.
+- **Globus Auth**: Globus Auth is a web service that allows users to authenticate and authorize access to resources.
+- **Globus Transfer**: Globus Transfer is a web service that allows users to transfer files to and from remote servers.
 
-## Quick Start
+## Project Infrastructure
 
-Click the button to clone this repository and deploy it on Vercel:
+- **Diamond API**: A gunicorn server hosted on [Railway](https://railway.app/).
+- **Diamond Web UI**: A NextJS application hosted on [Vercel](https://vercel.com/).
+- **Data**: Data is stored in a [PostgreSQL](https://www.postgresql.org/) database hosted on [Supabase](https://supabase.com/).
+- **Services**: 
+    - Jobs are executed on [Globus Compute](https://www.globus.org/globus-compute).
+    - Files are transferred using [Globus Transfer](https://www.globus.org/globus-transfer).
+    - Authentication is handled by [Globus Auth](https://www.globus.org/globus-auth).
 
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
 
-## Local Development
+## Instructions to change the documentation
 
-First, run `pnpm i` to install the dependencies.
+### Local Development
+Clone the repository and install the dependencies.
+```bash
+git clone https://github.com/DiamondHPC/documentation-starter-kit/
+cd documentation-starter-kit
+pnpm i
+```
 
 Then, run `pnpm dev` to start the development server and visit localhost:3000.
 
