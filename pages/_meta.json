@@ -1,10 +1,6 @@
 {
   "index": "Introduction",
   "quickstart": "Quick Start",
-  "image-builder": "Image Builder",
-  "image-manager": "Image Manager",
-  "job-composer": "Job Composer",
-  "task-manager": "Task Manager",
   "about": {
     "title": "About",
     "type": "page"
