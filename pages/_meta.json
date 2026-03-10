@@ -1,6 +1,7 @@
 {
   "index": "Introduction",
   "quickstart": "Quick Start",
+  "nairr-tutorial": "NAIRR Tutorial",
   "about": {
     "title": "About",
     "type": "page"
